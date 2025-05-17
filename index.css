@@ -1,0 +1,73 @@
+:root {
+  --dracula-background: #282a36;
+  --dracula-selection: #44475a;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: var(--dracula-foreground);
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--dracula-background);
+}
+
+.main-content {
+  width: 80%;
+  max-width: 900px;
+  min-height: 100vh;
+  margin: 0 auto;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: var(--dracula-selection);
+}
+
+.title-container {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  padding: 0.4rem;
+}
+
+.title-container svg {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.title-container svg:hover {
+  background-color: rgb(80, 82, 94, 0.2);
+  transition: 0.2s ease;
+}
+
+.images-container {
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.profile-image {
+  position: absolute;
+  border-radius: 9999px;
+  height: 69%;
+  width: auto;
+  bottom: -20%;
+  left: 0.4rem;
+}

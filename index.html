@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aayush Upreti</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        max-width: 600px;
-      }
-      button {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        color: white;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Reimagining My Portfolio</h1>
-    <p>
-      I'm looking to recreate my website with a unique approach, but don't have
-      any ideas yet. So, I currently lack a practical portfolio page to
-      showcase. Please visit my GitHub instead.
-    </p>
-    <button onclick="redirect()">Visit My GitHub</button>
-    <script>
-      function redirect() {
-        window.location.href = "https://github.com/ayus-10";
-      }
-    </script>
-  
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio - Aayush Upreti</title>
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+    <body>
+        <main class="container">
+            <section class="main-content">
+                <div class="title-container">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-left-icon lucide-chevron-left"
+                    >
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
 
-</body></html>
+                    <h1>Aayush Upreti</h1>
+                </div>
+                <div class="images-container">
+                    <img
+                        src="./assets/banner.jpg"
+                        alt="Banner image"
+                        class="banner-image"
+                    />
+                    <img
+                        src="./assets/pfp.jpg"
+                        alt="Profile picture"
+                        class="profile-image"
+                    />
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
