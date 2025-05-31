@@ -1,3 +1,35 @@
+/* Regular */
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("./assets/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("./assets/fonts/JetBrainsMono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("./assets/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("./assets/fonts/JetBrainsMono-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+}
+
 :root {
   --dracula-background: #282a36; /* rgb(40, 42, 54) */
   --dracula-selection: #44475a;
@@ -16,7 +48,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "JetBrainsMono", monospace;
   color: var(--dracula-foreground);
   background-color: var(--dracula-background);
 }
@@ -213,7 +245,8 @@ button:hover {
   padding: 0.8rem 0;
 }
 
-.random-bs-info > div > span:nth-child(2):hover {
+.random-bs-info > div > span:nth-child(2):hover,
+.bs-handle:hover {
   cursor: pointer;
   text-decoration: underline;
 }
