@@ -136,9 +136,53 @@
 .text-container {
   margin-top: 3.5rem;
   padding: 0.8rem;
-  height: 100vh;
   display: flex;
   justify-content: space-between;
+}
+
+.tabs-container {
+  width: 100%;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.tab {
+  padding: 15px 0;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #ccc;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.tab:hover {
+  color: #fff;
+}
+
+.tab.active {
+  color: #fff;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background-color: var(--dracula-comment);
+  border-radius: 2px;
+  transition:
+    width 0.3s ease,
+    left 0.3s ease,
+    transform 0.3s ease;
 }
 
 button {

@@ -31,3 +31,33 @@ document.addEventListener("keydown", (event) => {
     fullBannerImage.classList.remove("visible");
   }
 });
+
+const aboutTab = document.getElementById("tab-about");
+const experienceTab = document.getElementById("tab-experience");
+const contactTab = document.getElementById("tab-contact");
+
+const updateActiveTab = (tab) => {
+  const activeTab = document.getElementsByClassName("active")[0];
+  activeTab.classList.remove("active");
+
+  history.replaceState(null, "", `#${tab.split("-")[1]}`);
+
+  switch (tab) {
+    case "tab-about":
+      aboutTab.classList.add("active");
+      break;
+    case "tab-experience":
+      experienceTab.classList.add("active");
+      break;
+    case "tab-contact":
+      contactTab.classList.add("active");
+      break;
+    default:
+      aboutTab.classList.add("active");
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const initialTab = window.location.hash.slice(1);
+  updateActiveTab(`tab-${initialTab ?? "about"}`);
+});
