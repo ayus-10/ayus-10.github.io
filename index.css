@@ -79,9 +79,11 @@
 
 .banner-image {
   width: 100%;
+  min-height: 200px;
 }
 
 .profile-image {
+  min-height: 150px;
   position: absolute;
   border-radius: 9999px;
   height: 69%;
@@ -131,8 +133,60 @@
   visibility: visible;
 }
 
-.demo {
+.text-container {
+  margin-top: 3.5rem;
+  padding: 0.8rem;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: var(--dracula-foreground);
+  color: var(--dracula-background);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+.text-container span {
+  color: var(--dracula-comment);
+}
+
+.random-bs-info {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.8rem 0;
+}
+
+.random-bs-info > div > span:nth-child(2):hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.random-bs-info > div > span:first-child {
+  color: var(--dracula-foreground);
+}
+
+@media (max-width: 1023px) {
+  .demo {
+    margin-top: 2.5rem;
+  }
+
+  .full-banner-image,
+  .full-profile-image {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
