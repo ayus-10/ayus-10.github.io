@@ -113,6 +113,8 @@ const submitForm = () => {
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
+  if (!name || !email || !message) return;
+
   const recipientEmail = "aayushupreti2022@gmail.com";
   const subject = encodeURIComponent(`Message from ${name}, ${email}`);
   const body = encodeURIComponent(message);
