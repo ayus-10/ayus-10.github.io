@@ -110,7 +110,10 @@
                     class="x-section contact-section"
                     style="display: none"
                 >
-                    <form class="contact-form" onsubmit="submitForm()">
+                    <form
+                        class="contact-form"
+                        onsubmit="preventDefaultSubmit()"
+                    >
                         <h3>Contact Me</h3>
                         <p>
                             Too lazy to setup an email provider, submitting this
@@ -150,7 +153,9 @@
                                 >Message</label
                             >
                         </div>
-                        <button type="submit">Send</button>
+                        <button type="submit" onclick="submitForm()">
+                            Send
+                        </button>
                     </form>
                 </section>
             </section>

@@ -104,20 +104,21 @@ const updateActiveTab = (tab) => {
   }
 };
 
-const submitForm = (event) => {
+const preventDefaultSubmit = (event) => {
   event.preventDefault();
+};
 
+const submitForm = () => {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  const subject = encodeURIComponent("Contact Form Submission");
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-  );
-  const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+  const recipientEmail = "aayushupreti2022@gmail.com";
+  const subject = encodeURIComponent(`Message from ${name}, ${email}`);
+  const body = encodeURIComponent(message);
+  const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
 
-  window.location.href = mailtoLink;
+  window.open(mailtoLink, "_blank");
 };
 
 document.addEventListener("DOMContentLoaded", () => {
