@@ -35,13 +35,13 @@
   --dracula-selection: #44475a;
   --dracula-foreground: #f8f8f2;
   --dracula-comment: #6272a4;
-  --dracula-cyan: #8be9fd;
+  /* --dracula-cyan: #8be9fd;
   --dracula-green: #50fa7b;
   --dracula-orange: #ffb86c;
   --dracula-pink: #ff79c6;
   --dracula-purple: #bd93f9;
   --dracula-red: #ff5555;
-  --dracula-yellow: #f1fa8c;
+  --dracula-yellow: #f1fa8c; */
 }
 
 * {
@@ -61,7 +61,7 @@
 
 .main-content {
   width: 80%;
-  max-width: 900px;
+  max-width: 800px;
   min-height: 100vh;
   margin: 0 auto;
   border-left: 1px solid;
@@ -263,16 +263,82 @@ button:hover {
   flex-grow: 1;
 }
 
+.x-section h3 {
+  padding-bottom: 1.25rem;
+}
+
+.step {
+  display: flex;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.step:last-child {
+  padding-bottom: 0;
+}
+
+.timeline {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  bottom: 0;
+  width: 2px;
+  background: var(--dracula-selection);
+}
+
+.step-circle {
+  width: 3rem;
+  height: 3rem;
+  z-index: 1;
+  position: relative;
+}
+
+.step-content {
+  margin-left: 2rem;
+}
+
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--dracula-foreground);
+}
+
+.step-subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dracula-foreground);
+  font-style: italic;
+  padding-bottom: 0.8rem;
+}
+
+.step-title > a {
+  text-decoration: none;
+}
+
+.step-title > a:hover {
+  text-decoration: underline;
+}
+
+.step-text {
+  font-size: 1rem;
+  color: var(--dracula-comment);
+}
+
+.nexbil-logo {
+  height: 3rem;
+  width: 3rem;
+}
+
 .contact-form {
   width: 100%;
 }
 
 .contact-form h3 {
-  padding-bottom: 0.2rem;
+  padding-bottom: 0;
 }
 
 .contact-form p {
-  padding-bottom: 0.8rem;
+  padding-bottom: 1.25rem;
   font-size: 0.9rem;
   font-style: italic;
   color: var(--dracula-comment);
