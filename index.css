@@ -179,7 +179,7 @@
   border-bottom: 1px solid #333;
   display: flex;
   justify-content: space-around;
-  padding: 0 1.25rem;
+  padding: 0 0.8rem;
 }
 
 .tab {
@@ -259,7 +259,7 @@ button:hover {
 
 .x-section {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem 3.75rem 1.25rem;
   flex-grow: 1;
 }
 
