@@ -263,6 +263,81 @@ button:hover {
   flex-grow: 1;
 }
 
+.contact-form {
+  width: 100%;
+}
+
+.contact-form h3 {
+  padding-bottom: 0.2rem;
+}
+
+.contact-form p {
+  padding-bottom: 0.8rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--dracula-comment);
+}
+
+.contact-form .form-group {
+  position: relative;
+  margin-bottom: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--dracula-selection);
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 1rem;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+}
+
+.input-label,
+.textarea-label {
+  position: absolute;
+  padding: 0 0.25rem;
+  color: var(--dracula-selection);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.input-label {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.5rem;
+}
+
+.textarea-label {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.contact-form input:focus + label,
+.contact-form input:not(:placeholder-shown) + label,
+.contact-form textarea:focus + label,
+.contact-form textarea:not(:placeholder-shown) + label {
+  left: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--dracula-foreground);
+}
+
+.contact-form input:focus + label,
+.contact-form input:not(:placeholder-shown) + label {
+  top: -0.1rem;
+}
+
+.contact-form textarea:focus + label,
+.contact-form textarea:not(:placeholder-shown) + label {
+  top: -0.7rem;
+}
+
 @media (max-width: 1023px) {
   .demo {
     margin-top: 2.5rem;

@@ -45,7 +45,7 @@
                 </div>
                 <div class="text-container">
                     <div class="info-container">
-                        <h1>Aayush Upreti</h1>
+                        <h1>Aayush Upreti🇳🇵</h1>
                         <span class="bs-handle">@ayus_1337</span>
                         <div class="random-bs-info">
                             <div>
@@ -110,7 +110,48 @@
                     class="x-section contact-section"
                     style="display: none"
                 >
-                    <h3>Kontact</h3>
+                    <form class="contact-form" onsubmit="submitForm()">
+                        <h3>Contact Me</h3>
+                        <p>
+                            Too lazy to setup an email provider, submitting this
+                            form will open your default email client populated
+                            with the entered data.
+                        </p>
+
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="name" class="input-label">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="email" class="input-label">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                placeholder=" "
+                                required
+                            ></textarea>
+                            <label for="message" class="textarea-label"
+                                >Message</label
+                            >
+                        </div>
+                        <button type="submit">Send</button>
+                    </form>
                 </section>
             </section>
             <aside class="full-banner-image">

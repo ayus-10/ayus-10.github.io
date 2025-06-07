@@ -104,6 +104,22 @@ const updateActiveTab = (tab) => {
   }
 };
 
+const submitForm = (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent("Contact Form Submission");
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  );
+  const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+
+  window.location.href = mailtoLink;
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const initialTab = window.location.hash.slice(1);
   updateActiveTab(`tab-${initialTab ?? "about"}`);
