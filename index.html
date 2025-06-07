@@ -1,59 +1,221 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aayush Upreti</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        max-width: 600px;
-      }
-      button {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        color: white;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Reimagining My Portfolio</h1>
-    <p>
-      I'm looking to recreate my website with a unique approach, but don't have
-      any ideas yet. So, I currently lack a practical portfolio page to
-      showcase. Please visit my GitHub instead.
-    </p>
-    <button onclick="redirect()">Visit My GitHub</button>
-    <script>
-      function redirect() {
-        window.location.href = "https://github.com/ayus-10";
-      }
-    </script>
-  
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio - Aayush Upreti</title>
+        <link rel="stylesheet" href="./index.css" />
+        <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+        <script src="./index.js" defer></script>
+    </head>
+    <body>
+        <main class="container">
+            <section class="main-content">
+                <div class="title-container">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-left-icon lucide-chevron-left"
+                        onclick="goBack()"
+                    >
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
 
-</body></html>
+                    <h1>Aayush Upreti</h1>
+                </div>
+                <div class="images-container">
+                    <img
+                        src="./assets/banner.jpg"
+                        alt="Banner image"
+                        class="banner-image"
+                    />
+                    <img
+                        src="./assets/pfp.png"
+                        alt="Profile picture"
+                        class="profile-image"
+                    />
+                </div>
+                <div class="text-container">
+                    <div class="info-container">
+                        <h1>Aayush Upreti🇳🇵</h1>
+                        <span class="bs-handle">@ayus_1337</span>
+                        <div class="random-bs-info">
+                            <div>
+                                <span>69</span>
+                                <span>following</span>
+                            </div>
+                            <div>
+                                <span>420</span>
+                                <span>followers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button>Follow</button>
+                    </div>
+                </div>
+
+                <div class="tabs-container">
+                    <span
+                        id="tab-about"
+                        class="tab active"
+                        onclick="updateActiveTab(this.id)"
+                        >About
+                    </span>
+                    <span
+                        id="tab-experience"
+                        class="tab"
+                        onclick="updateActiveTab(this.id)"
+                        >Experience
+                    </span>
+                    <span
+                        id="tab-contact"
+                        class="tab"
+                        onclick="updateActiveTab(this.id)"
+                        >Contact
+                    </span>
+                </div>
+
+                <section class="x-section about-section" style="display: none">
+                    <h3>Ahoy👋</h3>
+                    -> I'm a passionate Computer Science student, with a keen
+                    interest in web technologies. <br />
+                    -> Usually my tech stack revolves around JavaScript (and its
+                    enormous ecosystem), but I also prefer coding in Python, Go
+                    and C#. <br />
+                    -> Apart from web development I also keep exploring other
+                    areas in programming.
+                    <br />
+                    -> Open to freelance work, collaborations and full time
+                    roles.
+                </section>
+
+                <section
+                    class="x-section experience-section"
+                    style="display: none"
+                >
+                    <h3>Work History</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="timeline"></div>
+                            <div class="step-circle">
+                                <img
+                                    src="./assets/nexbil-logo.png"
+                                    alt="Nexbil"
+                                    class="nexbil-logo"
+                                />
+                            </div>
+                            <div class="step-content">
+                                <h2 class="step-title">
+                                    Full-stack Developer Intern,
+                                    <a
+                                        href="https://www.linkedin.com/company/nexbil/"
+                                        >Nexbil Software Solution</a
+                                    >
+                                </h2>
+                                <h4 class="step-subtitle">
+                                    Jan 2025 - Mar 2025
+                                </h4>
+                                <p class="step-text">
+                                    Contributed to a range of web development
+                                    projects, mostly built with Next.js.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-circle">
+                                <img
+                                    src="./assets/nexbil-logo.png"
+                                    alt="Nexbil"
+                                    class="nexbil-logo"
+                                />
+                            </div>
+                            <div class="step-content">
+                                <h2 class="step-title">
+                                    Full-stack Developer,
+                                    <a
+                                        href="https://www.linkedin.com/company/nexbil/"
+                                        >Nexbil Software Solution</a
+                                    >
+                                </h2>
+                                <h4 class="step-subtitle">
+                                    Apr 2025 - Present
+                                </h4>
+                                <p class="step-text">
+                                    Responsibe for building and maintaining
+                                    scalable websites and backend systems.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    class="x-section contact-section"
+                    style="display: none"
+                >
+                    <form
+                        class="contact-form"
+                        onsubmit="preventDefaultSubmit()"
+                    >
+                        <h3>Contact Me</h3>
+                        <p>
+                            Too lazy for an email server; this form opens your
+                            email client with entered data.
+                        </p>
+
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="name" class="input-label">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder=" "
+                                required
+                            />
+                            <label for="email" class="input-label">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                placeholder=" "
+                                required
+                            ></textarea>
+                            <label for="message" class="textarea-label"
+                                >Message</label
+                            >
+                        </div>
+                        <button type="submit" onclick="submitForm()">
+                            Send
+                        </button>
+                    </form>
+                </section>
+            </section>
+            <aside class="full-banner-image">
+                <img src="./assets/banner.jpg" alt="Full banner image" />
+            </aside>
+            <aside class="full-profile-image">
+                <img src="./assets/pfp.png" alt="Full profile image" />
+            </aside>
+        </main>
+    </body>
+</html>
