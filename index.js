@@ -1,9 +1,9 @@
-const profileImage = document.getElementsByClassName("profile-image")[0];
-const bannerImage = document.getElementsByClassName("banner-image")[0];
+const goBack = () => window.history.back();
 
-const fullBannerImage = document.getElementsByClassName("full-banner-image")[0];
-const fullProfileImage =
-  document.getElementsByClassName("full-profile-image")[0];
+const profileImage = document.querySelectorAll(".profile-image")[0];
+const bannerImage = document.querySelectorAll(".banner-image")[0];
+const fullBannerImage = document.querySelectorAll(".full-banner-image")[0];
+const fullProfileImage = document.querySelectorAll(".full-profile-image")[0];
 
 profileImage.addEventListener("click", () =>
   fullProfileImage.classList.toggle("visible"),
@@ -36,8 +36,51 @@ const aboutTab = document.getElementById("tab-about");
 const experienceTab = document.getElementById("tab-experience");
 const contactTab = document.getElementById("tab-contact");
 
+const aboutSection = document.querySelectorAll(".about-section")[0];
+const experienceSection = document.querySelectorAll(".experience-section")[0];
+const contactSection = document.querySelectorAll(".contact-section")[0];
+
+const hideSections = (sections) => {
+  sections.forEach((section) => {
+    switch (section) {
+      case "about":
+        aboutSection.style.display = "none";
+        break;
+      case "experience":
+        experienceSection.style.display = "none";
+        break;
+      case "contact":
+        contactSection.style.display = "none";
+    }
+  });
+};
+
+const renderSection = (section) => {
+  const sectionsToHide = ["experience", "contact", "about"].filter(
+    (s) => s !== section,
+  );
+
+  switch (section) {
+    case "about":
+      aboutSection.style.display = "block";
+      hideSections(sectionsToHide);
+      break;
+    case "experience":
+      experienceSection.style.display = "block";
+      hideSections(sectionsToHide);
+      break;
+    case "contact":
+      contactSection.style.display = "block";
+      hideSections(sectionsToHide);
+      break;
+    default:
+      aboutSection.style.display = "block";
+      hideSections(sectionsToHide);
+  }
+};
+
 const updateActiveTab = (tab) => {
-  const activeTab = document.getElementsByClassName("active")[0];
+  const activeTab = document.querySelectorAll(".active")[0];
   activeTab.classList.remove("active");
 
   history.replaceState(null, "", `#${tab.split("-")[1]}`);
@@ -45,15 +88,19 @@ const updateActiveTab = (tab) => {
   switch (tab) {
     case "tab-about":
       aboutTab.classList.add("active");
+      renderSection("about");
       break;
     case "tab-experience":
       experienceTab.classList.add("active");
+      renderSection("experience");
       break;
     case "tab-contact":
       contactTab.classList.add("active");
+      renderSection("contact");
       break;
     default:
       aboutTab.classList.add("active");
+      renderSection("about");
   }
 };
 
