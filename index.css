@@ -49,6 +49,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "JetBrainsMono", monospace;
+  font-size: 1rem;
   color: var(--dracula-foreground);
   background-color: var(--dracula-background);
 }
@@ -87,6 +88,7 @@
 }
 
 .title-container h1 {
+  font-size: 1.1rem;
   background: transparent;
 }
 
@@ -138,6 +140,7 @@
   padding: 0.8rem;
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
 }
 
 .tabs-container {
@@ -150,7 +153,7 @@
 
 .tab {
   padding: 0.6rem 0;
-  font-size: 1.1em;
+  font-size: 1rem;
   font-weight: 500;
   color: #ccc;
   text-decoration: none;
@@ -191,7 +194,7 @@ button {
   border: none;
   border-radius: 1.25rem;
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition:
@@ -211,6 +214,7 @@ button:hover {
   display: flex;
   gap: 0.4rem;
   padding: 0.8rem 0;
+  font-size: 1rem;
 }
 
 .random-bs-info > div > span:nth-child(2):hover,
@@ -231,6 +235,7 @@ button:hover {
 
 .x-section h3 {
   padding-bottom: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .step {
@@ -270,7 +275,7 @@ button:hover {
 }
 
 .step-subtitle {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--dracula-foreground);
   font-style: italic;
@@ -301,6 +306,7 @@ button:hover {
 
 .contact-form h3 {
   padding-bottom: 0;
+  font-size: 1.1rem;
 }
 
 .special-div {
@@ -308,7 +314,7 @@ button:hover {
 }
 
 .contact-form p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-style: italic;
   color: var(--dracula-comment);
 }
@@ -376,11 +382,13 @@ button:hover {
 @media (max-width: 1023px) {
   .demo {
     margin-top: 2.5rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 767px) {
   .main-content {
     width: 100%;
+    font-size: 1rem;
   }
 }
