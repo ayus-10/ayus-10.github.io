@@ -83,12 +83,18 @@ const submitForm = () => {
 
   if (!name || !email || !message) return;
 
-  const recipientEmail = "aayushupreti2022@gmail.com";
-  const subject = encodeURIComponent(`Message from ${name}, ${email}`);
-  const body = encodeURIComponent(message);
-  const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-
-  window.open(mailtoLink, "_blank");
+  fetch(
+    "https://nsfcejnlucgrwfnoeiqm.supabase.co/functions/v1/discord-webhook",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    },
+  );
 };
 
 document.addEventListener("DOMContentLoaded", () => {
