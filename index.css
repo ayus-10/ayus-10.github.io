@@ -303,8 +303,11 @@ button:hover {
   padding-bottom: 0;
 }
 
-.contact-form p {
+.special-div {
   padding-bottom: 1.25rem;
+}
+
+.contact-form p {
   font-size: 0.9rem;
   font-style: italic;
   color: var(--dracula-comment);

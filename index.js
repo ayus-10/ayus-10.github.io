@@ -72,19 +72,19 @@ const updateActiveTab = (tab) => {
   }
 };
 
-const preventDefaultSubmit = (event) => {
+const submitForm = (event) => {
   event.preventDefault();
-};
 
-const submitForm = () => {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
   if (!name || !email || !message) return;
 
+  const messageSentText = document.querySelectorAll(".message-sent-text")[0];
+
   fetch(
-    "https://nsfcejnlucgrwfnoeiqm.supabase.co/functions/v1/discord-webhook",
+    "https://nsfcejnlucgrwfnoeiqm.supabase.co/functions/v1/dynamic-action",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -94,7 +94,9 @@ const submitForm = () => {
         message,
       }),
     },
-  );
+  ).finally(() => {
+    messageSentText.style.display = "block";
+  });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
