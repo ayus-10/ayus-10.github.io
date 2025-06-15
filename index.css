@@ -182,10 +182,7 @@
   height: 3px;
   background-color: var(--dracula-comment);
   border-radius: 2px;
-  transition:
-    width 0.3s ease,
-    left 0.3s ease,
-    transform 0.3s ease;
+  transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
 }
 
 button {
@@ -197,34 +194,20 @@ button {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition:
-    background-color 0.3s,
-    box-shadow 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
   background-color: #e0e0e0;
 }
 
-.text-container span {
+.text-container a {
+  text-decoration: none;
   color: var(--dracula-comment);
 }
 
-.random-bs-info {
-  display: flex;
-  gap: 0.4rem;
-  padding: 0.8rem 0;
-  font-size: 1rem;
-}
-
-.random-bs-info > div > span:nth-child(2):hover,
-.bs-handle:hover {
-  cursor: pointer;
+.text-container a:hover {
   text-decoration: underline;
-}
-
-.random-bs-info > div > span:first-child {
-  color: var(--dracula-foreground);
 }
 
 .x-section {

@@ -8,6 +8,10 @@ const aboutSection = document.querySelectorAll(".about-section")[0];
 const experienceSection = document.querySelectorAll(".experience-section")[0];
 const contactSection = document.querySelectorAll(".contact-section")[0];
 
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+
 const hideSections = (sections) => {
   sections.forEach((section) => {
     switch (section) {
@@ -25,7 +29,7 @@ const hideSections = (sections) => {
 
 const renderSection = (section) => {
   const sectionsToHide = ["experience", "contact", "about"].filter(
-    (s) => s !== section,
+    (s) => s !== section
   );
 
   switch (section) {
@@ -75,9 +79,9 @@ const updateActiveTab = (tab) => {
 const submitForm = (event) => {
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const message = messageInput.value;
 
   if (!name || !email || !message) return;
 
@@ -93,10 +97,16 @@ const submitForm = (event) => {
         email,
         message,
       }),
-    },
-  ).finally(() => {
-    messageSentText.style.display = "block";
-  });
+    }
+  )
+    .then(() => {
+      messageSentText.style.display = "block";
+    })
+    .finally(() => {
+      nameInput.value = "";
+      emailInput.value = "";
+      messageInput.value = "";
+    });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
