@@ -143,6 +143,11 @@
   font-size: 1rem;
 }
 
+.links-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
 .tabs-container {
   width: 100%;
   border-bottom: 1px solid #333;
