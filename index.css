@@ -146,6 +146,29 @@
 .links-container {
   display: flex;
   gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--dracula-selection);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.links-container a:hover {
+  background-color: var(--dracula-comment);
+}
+
+.links-container svg {
+  background-color: transparent;
+  width: 20px;
+  height: 20px;
 }
 
 .tabs-container {
