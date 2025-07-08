@@ -87,6 +87,12 @@ const submitForm = (event) => {
 
   const messageSentText = document.querySelectorAll(".message-sent-text")[0];
 
+  const submitFormBtn = document.querySelector("#submitFormBtn");
+
+  submitFormBtn.innerText = "Sending...";
+  submitFormBtn.disabled = true;
+  submitFormBtn.style.opacity = 0.5;
+
   fetch(
     "https://nsfcejnlucgrwfnoeiqm.supabase.co/functions/v1/dynamic-action",
     {
@@ -106,6 +112,10 @@ const submitForm = (event) => {
       nameInput.value = "";
       emailInput.value = "";
       messageInput.value = "";
+
+      submitFormBtn.innerText = "Send";
+      submitFormBtn.disabled = false;
+      submitFormBtn.style.opacity = 1;
     });
 };
 
