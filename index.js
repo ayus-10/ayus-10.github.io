@@ -94,7 +94,7 @@ const submitForm = (event) => {
   submitFormBtn.style.opacity = 0.5;
 
   fetch(
-    "https://nsfcejnlucgrwfnoeiqm.supabase.co/functions/v1/dynamic-action",
+    "https://gotham-messenger.aayushupreti2022.workers.dev",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -107,6 +107,13 @@ const submitForm = (event) => {
   )
     .then(() => {
       messageSentText.style.display = "block";
+    })
+    .catch(() => {
+      const subject = encodeURIComponent(`Message from ${name}, ${email}`);
+      const body = encodeURIComponent(message);
+      const mailtoLink = `mailto:aayushupreti03@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.location.href = mailtoLink;
     })
     .finally(() => {
       nameInput.value = "";
