@@ -18,7 +18,7 @@ Caddy runs in Docker on the same box.
 
 ## How It Works
 
-![Architecture diagram](https://ayus-10.github.io/my-blogs/assets/blog/zeroku-arch.png)
+![Architecture diagram](https://ayus-10.github.io/assets/blog/zeroku-arch.png)
 
 The flow is pretty straightforward: your CLI talks to AWS to spin up an EC2 instance, then sends commands to the daemon through Caddy. The daemon manages your app containers, and Caddy routes traffic to them with automatic HTTPS.
 

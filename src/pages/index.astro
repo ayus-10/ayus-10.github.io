@@ -1,99 +1,139 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'My Astro Blog';
-const description = 'The perfect starter for your perfect blog.';
-const permalink = Astro.site.href;
+const title = "Aayush's Blog";
+const description = 'Aayush is a software engineer based in Nepal. Notes on software, engineering, and things worth sharing.';
+const permalink = new URL(Astro.url.pathname, Astro.site).href;
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) =>
+    new Date(b.data.publishDate).valueOf() -
+    new Date(a.data.publishDate).valueOf(),
+);
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="home-container">
-    <div class="home-copy">
-      <h1>Welcome to your new Astro Blog</h1>
-      <p>Check out the docs on <a href="https://www.github.com/Charca/astro-blog-template" target="_blank" rel="noopener">GitHub</a> to get started.</p>
-    </div>
-
-    <div class="hero-image-container">
-      <picture>
-        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
-      </picture>
-      <p class="caption">
-        Illustration by
-        <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
-        <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
+  <main class="home">
+    <section class="intro" aria-labelledby="welcome-heading">
+      <h1 id="welcome-heading">Aayush's Blog</h1>
+      <p class="description">
+        I write about software, the things I build, and ideas I find worth sharing.
+        Find me on
+        <a href="https://www.x.com/elcerdovirtual" target="_blank" rel="noopener noreferrer">X</a>
+        or <a href="https://www.github.com/ayus-10" target="_blank" rel="noopener noreferrer">GitHub</a>.
       </p>
-    </div>
-  </div>
+    </section>
+
+    <section class="writing" aria-labelledby="writing-heading">
+      <h2 id="writing-heading">Writing</h2>
+      <ul class="posts">
+        {posts.map((post) => (
+          <li class="post">
+            <time datetime={new Date(post.data.publishDate).toISOString()}>
+              {post.data.publishDate}
+            </time>
+            <h3><a href={`/blog/${post.data.slug}`}>{post.data.title}</a></h3>
+            <p>{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  .home-container {
-    align-items: center;
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    margin: 2em 0;
-    min-height: 400px;
-  }
-
-  .home-copy {
-    flex: 1;
-    padding: 0 1em;
-  }
-
-  .home-copy h1 {
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    line-height: 1.3;
-  }
-
-  .home-copy p {
-    font-size: 1.4em;
-  }
-
-  .hero-image-container {
-    margin: 0 1em;
-    text-align: center;
-  }
-
-  .hero-image-container picture {
-    display: block;
-    min-height: 250px;
-  }
-
-  .caption {
-    font-size: .8em;
-    font-style: italic;
-    text-align: left;
-  }
-
-  .hero-image {
+  .home {
     width: 100%;
-    max-width: 550px;
-    margin-bottom: 1em;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 9vh, 6rem) 0 3rem;
   }
 
-  @media (max-width: 1200px) {
-    p {
-      font-size: 1.2em;
-    }
+  .intro {
+    margin-bottom: clamp(3rem, 8vh, 5rem);
+  }
 
-    .hero-image {
-      max-width: 400px;
-    }
+  .post time {
+    color: var(--text-secondary);
+    font-family: var(--font-family-sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin-bottom: 1.25rem;
+    font-size: clamp(3rem, 8vw, 5.75rem);
+    letter-spacing: -0.055em;
+    line-height: 1.02;
+  }
+
+  .description {
+    max-width: 58ch;
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    line-height: 1.75;
+  }
+
+  .description a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration-color: var(--primary-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .writing h2 {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-family-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .posts {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .post {
+    padding: 1.5rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--text-secondary) 30%, transparent);
+  }
+
+  .post time {
+    font-size: 0.75rem;
+  }
+
+  .post h3 {
+    margin: 0.35rem 0;
+    font-size: clamp(1.35rem, 3vw, 1.7rem);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+  }
+
+  .post h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post h3 a:hover {
+    color: var(--primary-color);
+  }
+
+  .post p {
+    margin: 0;
+    color: var(--text-secondary);
   }
 
   @media (max-width: 800px) {
-    .home-container {
-      flex-direction: column;
-    }
-
-    .home-copy {
-      flex: 0;
-      padding-bottom: 2em;
-      text-align: center;
+    .home {
+      padding-right: 0.25rem;
+      padding-left: 0.25rem;
     }
   }
 </style>

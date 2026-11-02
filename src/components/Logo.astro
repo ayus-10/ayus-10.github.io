@@ -1,16 +1,21 @@
 <style>
-  img {
-    display: block;
-    width: 75px;
+  @font-face {
+    font-family: 'Tiny5';
+    src: url('/assets/fonts/tiny5.ttf') format('truetype');
+    font-display: swap;
   }
 
-  @media screen and (max-width: 520px) {
-    img {
-      display: none;
-    }
+  .logo {
+    display: flex;
+    width: 75px;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Tiny5', monospace;
+    font-size: 5rem;
+    color: --var(text-main);
+    text-decoration: none;
   }
 </style>
 
-<a href="/">
-  <img alt="Blog Logo" src="/assets/logo.webp" width="75" height="50" />
-</a>
+<a href="/" class="logo" aria-label="Home">AU</a>

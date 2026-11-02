@@ -1,5 +1,4 @@
 ---
-// ThemeToggleButton.astro
 const themes = ['light', 'dark'] as const;
 
 const icons = [
@@ -30,12 +29,7 @@ const icons = [
 </div>
 
 <script>
-  const root = document.documentElement;
-  const inputs = document.querySelectorAll<HTMLInputElement>(
-    'input[name="theme-toggle"]'
-  );
-
-  function getInitialTheme(): string {
+  function getTheme(): string {
     const stored = localStorage.getItem('theme');
     if (stored) return stored;
     return window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -44,21 +38,35 @@ const icons = [
   }
 
   function applyTheme(theme: string) {
-    root.classList.toggle('theme-dark', theme === 'dark');
+    document.documentElement.classList.toggle('theme-dark', theme === 'dark');
 
-    inputs.forEach((input) => {
-      const isActive = input.value === theme;
-      input.checked = isActive;
-      input.closest('label')?.classList.toggle('checked', isActive);
-    });
+    document
+      .querySelectorAll<HTMLInputElement>('input[name="theme-toggle"]')
+      .forEach((input) => {
+        const active = input.value === theme;
+        input.checked = active;
+        input.closest('label')?.classList.toggle('checked', active);
+      });
   }
 
-  inputs.forEach((input) => {
-    input.addEventListener('change', () => {
-      localStorage.setItem('theme', input.value);
-      applyTheme(input.value);
-    });
-  });
+  function setup() {
+    document
+      .querySelectorAll<HTMLInputElement>('input[name="theme-toggle"]')
+      .forEach((input) => {
+        input.addEventListener('change', () => {
+          localStorage.setItem('theme', input.value);
+          applyTheme(input.value);
+        });
+      });
 
-  applyTheme(getInitialTheme());
+    applyTheme(getTheme());
+  }
+
+  // Runs on the initial load and after every client-side navigation
+  document.addEventListener('astro:page-load', setup);
+
+  // The swap replaces <html>'s classes, so restore the theme before paint
+  document.addEventListener('astro:after-swap', () => {
+    document.documentElement.classList.toggle('theme-dark', getTheme() === 'dark');
+  });
 </script>
