@@ -7,8 +7,8 @@
 
   .logo {
     display: flex;
-    width: 75px;
-    height: 75px;
+    width: 150px;
+    height: 150px;
     align-items: center;
     justify-content: center;
     font-family: 'Tiny5', monospace;
@@ -16,6 +16,15 @@
     color: --var(text-main);
     text-decoration: none;
   }
+
+  @media screen and (max-width: 480px) {
+    .logo {
+      width: 100px;
+      height: 100px;
+      font-size: 3rem;
+    }
+  }
+
 </style>
 
 <a href="/" class="logo" aria-label="Home">AU</a>
