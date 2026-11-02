@@ -7,7 +7,6 @@ import rehypeExternalLinks from 'rehype-external-links'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ayus-10.github.io',
-  base: '/my-blogs',
   integrations: [mdx()],
   markdown: {
     shikiConfig: {
