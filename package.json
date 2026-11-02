@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "packageManager": "pnpm@12.16.1",
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",
     "astro": "^5.5.2",
