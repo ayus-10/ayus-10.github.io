@@ -115,8 +115,12 @@ a:hover {
 p a {
   text-decoration: none;
   box-shadow: inset 0 -0.12em 0 var(--primary-color);
-  -webkit-transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 p a:hover {
@@ -138,9 +142,9 @@ hr {
 }
 
 code {
-  font-family: 'SF Mono', menlo, inconsolata, monospace;
+  font-family: "SF Mono", Menlo, Inconsolata, monospace;
   font-size: calc(1em - 2px);
-  color: #555;
+  color: #888;
   padding: 0.2em 0.4em;
   border-radius: 2px;
   -webkit-font-smoothing: antialiased;
@@ -229,7 +233,9 @@ td {
 
 .theme-toggle > label:focus-within {
   outline: 2px solid transparent;
-  box-shadow: 0 0 0 0.08em var(--theme-accent), 0 0 0 0.12em white;
+  box-shadow:
+    0 0 0 0.08em var(--theme-accent),
+    0 0 0 0.12em white;
 }
 
 .theme-toggle > label {
@@ -247,7 +253,7 @@ td {
   opacity: 1;
 }
 
-input[name='theme-toggle'] {
+input[name="theme-toggle"] {
   position: absolute;
   opacity: 0;
   top: 0;
