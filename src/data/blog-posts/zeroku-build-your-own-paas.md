@@ -58,12 +58,6 @@ The flow is pretty straightforward: your CLI talks to AWS to spin up an EC2 inst
 
 ## Why Build This?
 
-Most tutorials show you how to _use_ a PaaS. This one shows you how to _build_ one. You'll actually touch:
+I wanted to know what actually goes into building a PaaS, beyond the polished dashboard and the deploy button.
 
-- Real AWS APIs
-- Container lifecycle management
-- Reverse proxy configuration
-- Token-based auth
-- State management without a database
-
-By the end, you'll understand whether you could run something similar yourself.
+It's easy to take infrastructure provisioning, container management, routing, authentication, and persistent state for granted when using an existing platform. I wanted to get my hands dirty with all of it and see how these pieces fit together when you're the one responsible for making
