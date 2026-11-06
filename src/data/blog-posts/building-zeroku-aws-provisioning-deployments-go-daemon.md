@@ -1,3 +1,10 @@
+---
+title: "Building Zeroku: AWS Provisioning, Deployments, and a Go Daemon"
+slug: "building-zeroku-aws-provisioning-deployments-go-daemon"
+description: "Notes from building Zeroku, a self-hosted deployment platform using Go, AWS EC2, and Docker."
+publishDate: "2026-11-06"
+---
+
 # Building Zeroku: AWS Provisioning, Deployments, and a Go Daemon
 
 Zeroku is a self-hosted deployment tool built with Go, AWS EC2, and Docker. It provisions infrastructure, deploys applications from Git repositories, and provides a CLI to manage them.
