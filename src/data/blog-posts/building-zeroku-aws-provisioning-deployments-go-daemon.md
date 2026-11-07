@@ -5,8 +5,6 @@ description: "Notes from building Zeroku, a self-hosted deployment platform usin
 publishDate: "2026-11-06"
 ---
 
-# Building Zeroku: AWS Provisioning, Deployments, and a Go Daemon
-
 Zeroku is a self-hosted deployment tool built with Go, AWS EC2, and Docker. It provisions infrastructure, deploys applications from Git repositories, and provides a CLI to manage them.
 
 A good chunk of the work went into making the different pieces work together. Provisioning an EC2 instance is one thing, but handling failures during provisioning, keeping track of deployments, and making sure application state stays consistent are separate problems.
@@ -23,7 +21,7 @@ The PEM file is stored under:
 
 `~/.zeroku/zeroku-<region>.pem`
 
-I wanted initialization to be reasonably safe to retry. AWS provisioning involves multiple independent API calls, and there is no transaction that rolls all of them back automatically. So if something fails halfway through, we need to clean up whatever was already created.
+Initialization had to be reasonably safe to retry. AWS provisioning involves multiple independent API calls, and there is no transaction that rolls all of them back automatically. So if something fails halfway through, we need to clean up whatever was already created.
 
 For example, if the instance was successfully launched but a later operation failed, simply deleting the security group would not work while it is still attached to the instance. The instance needs to be terminated first, and the security group can be removed once it is no longer attached.
 
@@ -51,9 +49,7 @@ The deployment endpoint is where most of the interesting work happens.
 
 A deployment starts with validating the application name and repository URL. Once those checks pass, the daemon clones the GitHub repository and builds a Docker image from it.
 
-One thing I wanted to avoid was making the client sit around waiting for a potentially long Docker build without any feedback.
-
-For that, I implemented a small `flushWriter`. It forwards the build output to the HTTP response and flushes it as it arrives. This makes the deployment request feel much more responsive because the client can actually see what Docker is doing.
+A small `flushWriter` was implemented to ensure the build output is forwarded to the HTTP response and flushed as it arrives. This makes the deployment request feel much more responsive because the client can actually see what Docker is doing.
 
 Failed repository clones and failed builds are also handled without taking down the daemon. Errors are sent back through the response stream.
 
@@ -61,13 +57,11 @@ The deployment pipeline looks something like this:
 
 ![Deployment pipeline](https://ayus-10.github.io/assets/blog/zeroku-deployment-pipeline.png)
 
-There are quite a few moving parts here, and that is also why I wanted release tracking rather than treating a deployment as a single operation.
-
 ## Keeping track of application state
 
 The daemon uses a file-based JSON store to persist application state.
 
-I deliberately kept this simple. There is no database to configure or manage. The store maintains application metadata and release history in a local file.
+This was deliberately kept simple. There is no database to configure or manage. The store maintains application metadata and release history in a local file.
 
 The store uses a mutex to protect access to shared in-memory state. Reads use a read lock, while modifications use an exclusive lock.
 
@@ -94,7 +88,7 @@ It communicates with the daemon and supports the main workflows:
 - Stopping applications.
 - Deleting applications.
 
-I wanted the CLI to handle user interaction without duplicating the daemon's responsibilities. The daemon owns the application lifecycle and state, while the CLI acts as the client.
+The CLI handles user interaction without duplicating the daemon's responsibilities. The daemon owns the application lifecycle and state, while the CLI acts as the client.
 
 This also means the same API can eventually be used by other clients without needing to reproduce the deployment logic.
 
@@ -102,10 +96,10 @@ This also means the same API can eventually be used by other clients without nee
 
 There were a few design decisions that kept coming up while putting everything together.
 
-**Failure handling matters at every layer.** AWS provisioning can fail halfway through, Git cloning can fail, Docker builds can fail, and containers can fail health checks. Each failure needs to leave the system in a sensible state.
+**Failure handling matters at every layer.** AWS provisioning can fail halfway through, Git cloning can fail, Docker builds can fail, and containers can fail health checks.
 
-**State and deployment history are different things.** An application can have many releases, but only one should be identified as its current active release. Keeping those concepts separate makes the model easier to work with.
+**State and deployment history are different things.** An application can have many releases, but only one should be identified as its current active release.
 
-**Concurrency cannot be ignored.** Protecting the file-based store with a mutex is one part of the problem. Deployments of the same application also need to be isolated so that two concurrent requests do not race while allocating releases or updating the active release.
+**Concurrency cannot be ignored.** Deployments of the same application need to be isolated so that two concurrent requests do not race while allocating releases or updating the active release.
 
 There is still plenty of room to improve things, especially around failure recovery, integration testing, and cleanup of resources that outlive their deployments. But having infrastructure provisioning, a persistent state store, a deployment pipeline, and a CLI working together gives Zeroku a solid foundation to build on.

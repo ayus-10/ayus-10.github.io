@@ -58,6 +58,4 @@ The flow is pretty straightforward: your CLI talks to AWS to spin up an EC2 inst
 
 ## Why Build This?
 
-I wanted to know what actually goes into building a PaaS, beyond the polished dashboard and the deploy button.
-
 It's easy to take infrastructure provisioning, container management, routing, authentication, and persistent state for granted when using an existing platform. I wanted to get my hands dirty with all of it and see how these pieces fit together when you're the one responsible for making
