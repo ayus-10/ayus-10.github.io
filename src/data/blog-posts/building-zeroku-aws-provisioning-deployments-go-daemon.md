@@ -49,10 +49,6 @@ The deployment endpoint is where most of the interesting work happens.
 
 A deployment starts with validating the application name and repository URL. Once those checks pass, the daemon clones the GitHub repository and builds a Docker image from it.
 
-A small `flushWriter` was implemented to ensure the build output is forwarded to the HTTP response and flushed as it arrives. This makes the deployment request feel much more responsive because the client can actually see what Docker is doing.
-
-Failed repository clones and failed builds are also handled without taking down the daemon. Errors are sent back through the response stream.
-
 The deployment pipeline looks something like this:
 
 ![Deployment pipeline](https://ayus-10.github.io/assets/blog/zeroku-deployment-pipeline.png)
