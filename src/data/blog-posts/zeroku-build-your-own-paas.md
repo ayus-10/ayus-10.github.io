@@ -1,7 +1,7 @@
 ---
-title: "Building a Mini Heroku in One Week"
+title: "Zeroku: Build Your Own PaaS"
 slug: "zeroku-build-your-own-paas"
-description: "A week-long project to build your own mini PaaS with Go, AWS EC2, Docker, and Caddy. Deploy apps with a single command."
+description: "A tutorial project to build your own mini PaaS with Go, AWS EC2, Docker, and Caddy. Deploy apps with a single command."
 publishDate: "2026-11-02"
 ---
 
